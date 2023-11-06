@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site com Bootstrap</title>
+
+    <!-- Importando o CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/stylePageUser.css">
+    <!-- Se você precisar de estilos personalizados, adicione seu CSS depois do Bootstrap -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="d-flex justify-content-between m-3">
+            <img class="rounded-circle" id="testeCircle" alt="avatar1"
+                src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+            <img class="img-logo" alt="logo" src="img/Logo_Connect_Osasco.png" />
+            <div class="d"></div>
+        </div>
+
+        <img class="img-bgPageUser" alt="logo" src="img/BgPerfil.png" />
+
+        <img class="rounded-circle" id="imgPerfil" alt="avatar1"
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" />
+
+        <div class="conteudo">
+            <h2 class="font-bold">Julio Katantra</h2>
+            <h5>Cardiologista</h5>
+            <h7 class="text-secondary mt-4">Osasco - SP</h7>
+
+            <h2 class="font-bold mt-4">Sobre</h2>
+            <h7 class="size-text">Sou cardiologista, realizo exame vascular. Além disso, tenho especialização em
+                psicologia positiva e atualmente estou terminando uma pós graduação em neurociencia e
+                comportamento humano pela PUC - Rs. Minha intenção é
+                trabalhar no fortalecimento mentale físico dos pacientes
+                acometidos por doenças crônicas como o câncer.</h7>
+
+            <div class="divExperiencia">
+                <h2 class="font-bold mt-4">Experiência</h2>
+                <div class="d-flex justify-content-start mt-2">
+                     <div class="itemPerfil" id="iconExep"></div>
+                     <div  class="boxItenUser" id="boxItenExep"></div>
+                </div>
+            </div>
+
+            <div class="divFormaçao">
+                <h2 class="font-bold mt-4">Formação</h2>
+                <div class="d-flex justify-content-start mt-2">
+                     <div class="itemPerfil align-self-stretch" id="iconFormacao"></div>
+                     <div class="boxItenUser" id="boxItenformacao"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+    <!-- Importando os scripts do Bootstrap (popper.js é necessário para alguns componentes do Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        for(i=1; i<=2;i++){
+            switch(i){
+                case 1:
+                    ItensPageUser('Médico no plantão noturno', 'Hospital Municipal Antônio Giglio', 'fev de 2013 - Atualmente  |  10 anos. ', 'hospital.png','#EF5261','iconExep','boxItenExep')
+                    break;
+                case 2:
+                    ItensPageUser('Atendimento especializado em Cardiologia', 'Clinica Viver Mais', 'fev de 2021 - Atualmente  |  2 anos. ', 'medical-history.png','#82EDD1','iconExep','boxItenExep')
+                    break;
+                default:
+                    alert('erro')
+            }
+        }
+
+        for(i=1; i<=3;i++){
+            switch(i){
+                case 1:
+                    ItensPageUser('Faculdade de Medicina de Ribeirão Preto USP', 'Médico e Doutor', 'fev de 2005 - dez de 2011. ', 'diplomado.png','#A3A6EE','iconFormacao','boxItenformacao')
+                    break;
+                case 2:
+                    ItensPageUser('FMRP - USP', 'Residência em Clínica Médica', 'fev de 2013 - dez de 2015. ', 'equipamento_medico.png','#95E4DD','iconFormacao','boxItenformacao')
+                    break;
+                case 3:
+                    ItensPageUser('Hospital Israelita Albert Einstein', 'Pós-graduação em Cardiologia', 'fev de 2017 - dez de 2020. ', 'coracao.png','#FFDA7C','iconFormacao','boxItenformacao')
+                    break;
+                default:
+                    alert('erro')
+            }
+        }
+
+        function ItensPageUser(title, subTitle, textSecondary, srcIcon, colorIcon, divIcon, divText){
+            const iconPerfil = document.getElementById(divIcon) 
+            const icon = document.createElement('img')
+            icon.classList.add('iconBoxUser')
+            icon.src="img/"+srcIcon
+            icon.style.backgroundColor=colorIcon
+
+
+            const app = document.getElementById(divText) // Container element
+
+            const elementTitle = document.createElement('h6')
+            elementTitle.classList.add('font-bold')
+            elementTitle.classList.add('marginSmall')
+            elementTitle.innerText = title
+
+            const elementSubTitle = document.createElement('h7')
+            elementSubTitle.innerText = subTitle
+            const brakLine = document.createElement('br')
+
+            const elementSecondary = document.createElement('h7')
+            elementSecondary.classList.add('text-secondary')
+            elementSecondary.innerText = textSecondary
+
+            app.appendChild(elementTitle)
+            app.appendChild(elementSubTitle) 
+            app.appendChild(brakLine) 
+            app.appendChild(elementSecondary)
+        
+
+            iconPerfil.appendChild(icon)
+        }
+    </script>
+</body>
+
+</html>
